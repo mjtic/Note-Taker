@@ -3,7 +3,7 @@
 const express = require("express");
 const path = require("path");
 const api = require("./routes/api");
-const html = require("./routes/index")
+// const html = require("./routes/index");
 
 //run express app
 const app = express();
@@ -14,19 +14,22 @@ const PORT = process.env.PORT || 3001; //25-Ins_Heroku: Sets an initial port. We
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use("/index", html);
-// app.use("/api", api);
+// app.use("/index", html);
+app.use("/api", api);
 
 // GET Route for homepage
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
-);
+// app.get("*", (req, res) =>
+//   res.sendFile(path.join(__dirname, "/public/index.html"))
+// );
 
 // GET Route for notes page
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
+app.get("/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
 
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/public/index.html"))
+);
 //server start and litsen
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
