@@ -21,7 +21,7 @@ The application's front end was already created, this was an code refactoring pr
 
 ## Websites
 - Github page: (https://github.com/mjtic/Note-Taker/)
-- URL: (https://mjtic.github.io/Note-Taker/)
+- URL: (https://taken-note.herokuapp.com/)
 
 ## Usage
 
